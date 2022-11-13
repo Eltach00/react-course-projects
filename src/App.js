@@ -1,10 +1,20 @@
+import { useState } from 'react'
 import './App.css'
-import RandomNumComp from './components/NewComponent'
+import Button from './components/Button'
+import Content from './components/Content'
 
 function App() {
+  const [state, setstate] = useState(0)
+  function handleClick() {
+    setstate(state + 1)
+  }
   return (
     <div className="App">
-      <RandomNumComp maxNum={1000} />
+      <Content total={state} />
+      <Button onClick={handleClick} />
+      <Button />
+      <Button />
+      <Button />
     </div>
   )
 }
