@@ -9,20 +9,3 @@
   margin: 10px;
   border-radius: 5px;
 }
-
-.post {
-  width: 500px;
-  margin: auto;
-  height: auto;
-  padding: 10px;
-  border: solid 2px white;
-  border-radius: 10px;
-  margin: 5px;
-}
-
-.posts {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}

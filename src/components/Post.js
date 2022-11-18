@@ -1,6 +1,6 @@
-function Post({ title, body }) {
+function Post({ title, body, styles }) {
   return (
-    <div className="post">
+    <div className={styles.post}>
       <h2>{title}</h2>
       <p>{body}</p>
     </div>
