@@ -1,6 +1,7 @@
 .App {
   display: block;
   text-align: center;
+  font: 1em sans-serif;
 }
 
 .btn {

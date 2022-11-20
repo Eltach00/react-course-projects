@@ -33,20 +33,47 @@ function Todo() {
     )
   }
 
+  function handleReset() {
+    setListState([])
+  }
+
+  function handleRemoveDone() {
+    setListState(listState.filter((item) => !item.isDone))
+  }
+
+  let completedTodo = listState.reduce(
+    (sum, item) => (item.isDone ? sum + 1 : sum),
+    0
+  )
+
   return (
-    <div>
+    <div className={styles.container}>
       <h1 className={styles.header}>Todo App</h1>
       <TodoForm
         onClick={handleClick}
         inputState={inputState}
         changeState={changeState}
       />
-      <TodoActions actions={styles.actions} />
+      {!!listState.length && (
+        <TodoActions
+          completedTodo={!!completedTodo}
+          styles={styles}
+          reset={handleReset}
+          removeDone={handleRemoveDone}
+        />
+      )}
       <TodoList
         listState={listState}
         handleDelete={handleDelete}
         done={handleDone}
       />
+      {!!completedTodo && (
+        <h2 className={styles.header}>
+          {` You have completed ${completedTodo} ${
+            completedTodo > 1 ? 'todos' : 'todo'
+          }`}
+        </h2>
+      )}
     </div>
   )
 }

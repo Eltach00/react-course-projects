@@ -1,3 +1,4 @@
+import Button from '../UI/Button'
 import styles from './todoForm.module.css'
 
 function TodoForm({ onClick, inputState, changeState }) {
@@ -13,9 +14,7 @@ function TodoForm({ onClick, inputState, changeState }) {
           value={inputState}
           onChange={handleChange}
         />
-        <button id="submit" type="submit" className={styles.btn}>
-          Submit
-        </button>
+        <Button children={'Submit'} type={'submit'} />
       </form>
     </div>
   )
