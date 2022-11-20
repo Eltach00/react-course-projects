@@ -8,6 +8,8 @@
   height: 30px;
   margin-right: 10px;
   border-radius: 5px;
+  padding-left: 7px;
+  font-size: large;
 }
 
 .btn {

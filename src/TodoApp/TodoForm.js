@@ -8,6 +8,7 @@ function TodoForm({ onClick, inputState, changeState }) {
     <div>
       <form className={styles.form} onSubmit={onClick}>
         <input
+          placeholder="Enter new Todo"
           className={styles.inp}
           value={inputState}
           onChange={handleChange}

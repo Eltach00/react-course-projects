@@ -1,22 +1,30 @@
 import styles from './todoList.module.css'
 
-function TodoList({ listState, handleDelete }) {
+function TodoList({ listState, handleDelete, done }) {
   return (
     <div>
-      {listState.length === 0 ? (
+      {!listState.length ? (
         <h2 className={styles.header2}>List is empty...</h2>
       ) : (
         ''
       )}
-      <div className={styles.lists} id="list">
-        {listState.map((item, index) => {
+      <div className={styles.lists}>
+        {listState.map((item) => {
           return (
             <div
-              className={styles.listElem}
-              key={index}
-              onClick={() => handleDelete(index)}
+              className={`${styles.listElem} ${item.isDone ? styles.done : ''}`}
+              key={item.id}
             >
-              {item}
+              {item.text}
+              <span
+                className={styles.icon}
+                onClick={() => handleDelete(item.id)}
+              >
+                Delete
+              </span>
+              <span className={styles.icon} onClick={() => done(item.id)}>
+                Done
+              </span>
             </div>
           )
         })}
