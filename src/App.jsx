@@ -5,6 +5,8 @@ import Home from './Router/Home'
 import MainLyout from './Router/layouts/MainLyout'
 import NotFound from './Router/NotFound'
 import Todo from './TodoApp/Todo'
+import Courses from './Router/Courses'
+import SingleCourse from './Router/SingleCourse'
 import './App.css'
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="*" element={<NotFound />} />
             <Route path="todoApp" element={<Todo />} />
+            <Route path="courses" element={<Courses />} />
+            <Route path="courses/:courseSlug" element={<SingleCourse />} />
           </Route>
         </Routes>
       </div>
