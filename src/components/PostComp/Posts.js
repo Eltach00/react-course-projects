@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import Post from './Post'
-import styles from './cssForComp/posts.module.css'
+import styles from './posts.module.css'
 
 const API_URL = 'https://jsonplaceholder.typicode.com/posts'
 

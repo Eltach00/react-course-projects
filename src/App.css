@@ -11,3 +11,25 @@
   margin: 10px;
   border-radius: 5px;
 }
+
+.active {
+  color: lightyellow;
+  text-decoration: none;
+}
+
+a {
+  color: white;
+  font-size: 1.5rem;
+}
+
+nav {
+  margin-top: 15px;
+}
+nav a {
+  margin: 15px;
+}
+
+h1 {
+  font-size: 90px;
+  margin-top: 15px;
+}
