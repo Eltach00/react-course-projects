@@ -6,10 +6,11 @@ const Menu = () => {
       <NavLink to="." end>
         Home
       </NavLink>
-      <NavLink to="about">Go to About</NavLink>
-      <NavLink to="contacts"> Go to Contacts</NavLink>
-      <NavLink to="todoApp"> Go to Todo App</NavLink>
-      <NavLink to="courses"> Courses</NavLink>
+      <NavLink to="about">About</NavLink>
+      <NavLink to="contacts">Contacts</NavLink>
+      <NavLink to="todoApp">Todo App</NavLink>
+      <NavLink to="courses">Courses</NavLink>
+      <NavLink to="quoteMachine">Quote Machine</NavLink>
     </nav>
   )
 }

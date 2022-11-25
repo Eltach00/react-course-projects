@@ -8,6 +8,7 @@ import Todo from './TodoApp/Todo'
 import Courses from './Router/Courses'
 import SingleCourse from './Router/SingleCourse'
 import './App.css'
+import QuoteMachine from './RandomQuote/QuoteMachine'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="*" element={<NotFound />} />
             <Route path="todoApp" element={<Todo />} />
+            <Route path="quoteMachine" element={<QuoteMachine />} />
             <Route path="courses" element={<Courses />} />
             <Route path="courses/:courseSlug" element={<SingleCourse />} />
           </Route>
