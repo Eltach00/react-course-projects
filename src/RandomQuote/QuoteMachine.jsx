@@ -7,6 +7,10 @@ const API_DATA =
   'https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json'
 
 const QuoteMachine = () => {
+  const url = new URL(`https://twitter.com/intent/tweet`)
+  url.searchParams.set('hashtags', 'quotes')
+  url.searchParams.set('related', 'freecodecamp')
+
   const [data, setData] = useState([])
   const [randomQuote, setrandomQuote] = useState(0)
   const [color, setColor] = useState({})
@@ -23,6 +27,7 @@ const QuoteMachine = () => {
         const json = await response.json()
         const data = json.quotes
         setData(data)
+        setrandomQuote(randomInteger(0, data.length - 1))
       } catch (error) {
         alert(error.message)
       }
@@ -43,6 +48,14 @@ const QuoteMachine = () => {
     }, 500)
   }
 
+  function addHref() {
+    url.searchParams.set(
+      'text',
+      `'${data[randomQuote].quote}' ${data[randomQuote].author}`
+    )
+    return url
+  }
+
   return (
     <>
       <div style={color} id="container" className={styles.container}>
@@ -52,6 +65,15 @@ const QuoteMachine = () => {
             <div id="author" className={styles.author}>
               {data.length ? data[randomQuote].author : ''}
             </div>
+            <a
+              style={color}
+              type="button"
+              className={styles.twit}
+              href={data.length && addHref()}
+              title="Tweet this quote!"
+            >
+              Twitter
+            </a>
             <button
               style={color}
               id="btn"
