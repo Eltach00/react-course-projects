@@ -11,6 +11,7 @@ const Menu = () => {
       <NavLink to="todoApp">Todo App</NavLink>
       <NavLink to="courses">Courses</NavLink>
       <NavLink to="quoteMachine">Quote Machine</NavLink>
+      <NavLink to="boilingCalc">Boiling Calc</NavLink>
     </nav>
   )
 }

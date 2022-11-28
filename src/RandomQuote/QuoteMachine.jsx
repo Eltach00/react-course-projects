@@ -7,19 +7,16 @@ const API_DATA =
   'https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json'
 
 const QuoteMachine = () => {
-  const url = new URL(`https://twitter.com/intent/tweet`)
-  url.searchParams.set('hashtags', 'quotes')
-  url.searchParams.set('related', 'freecodecamp')
-
   const [data, setData] = useState([])
   const [randomQuote, setrandomQuote] = useState(0)
   const [color, setColor] = useState({})
   const [randomColor, setRandomColor] = useState(0)
-
   const [classText, setclassText] = useState(styles.text)
+
   useEffect(() => {
     setclassText(styles.text + ' ' + styles.change)
   }, [])
+
   useEffect(() => {
     async function getData() {
       try {
@@ -41,7 +38,7 @@ const QuoteMachine = () => {
     setRandomColor(randomInteger(0, colors.length - 1))
     setColor({
       backgroundColor: colors[randomColor],
-      transition: `background-color 1000ms linear`,
+      transition: `background-color 2000ms linear`,
     })
     setTimeout(() => {
       setclassText(styles.text + ' ' + styles.change)
@@ -49,13 +46,15 @@ const QuoteMachine = () => {
   }
 
   function addHref() {
+    const url = new URL(`https://twitter.com/intent/tweet`)
+    url.searchParams.set('hashtags', 'quotes')
+    url.searchParams.set('related', 'freecodecamp')
     url.searchParams.set(
       'text',
       `'${data[randomQuote].quote}' ${data[randomQuote].author}`
     )
     return url
   }
-
   return (
     <>
       <div style={color} id="container" className={styles.container}>
@@ -69,7 +68,7 @@ const QuoteMachine = () => {
               style={color}
               type="button"
               className={styles.twit}
-              href={data.length && addHref()}
+              href={data.length ? addHref() : ''}
               title="Tweet this quote!"
             >
               Twitter

@@ -9,6 +9,7 @@ import Courses from './Router/Courses'
 import SingleCourse from './Router/SingleCourse'
 import './App.css'
 import QuoteMachine from './RandomQuote/QuoteMachine'
+import Calculator from './components/TempCalc/Calculator'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
             <Route path="todoApp" element={<Todo />} />
             <Route path="quoteMachine" element={<QuoteMachine />} />
+            <Route path="boilingCalc" element={<Calculator />} />
             <Route path="courses" element={<Courses />} />
             <Route path="courses/:courseSlug" element={<SingleCourse />} />
           </Route>
